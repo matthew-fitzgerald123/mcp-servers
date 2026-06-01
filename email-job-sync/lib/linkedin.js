@@ -63,37 +63,78 @@ export async function fetchJobDetails(jobUrl) {
   return Object.keys(details).length > 0 ? { ...details, jobId } : null;
 }
 
-// Subjects LinkedIn sends for application confirmations.
+// Domains that send application confirmation emails we want to parse
+export const APPLICATION_SENDER_DOMAINS = new Set([
+  'linkedin.com',
+  // ATS platforms
+  'greenhouse.io', 'app.greenhouse.io',
+  'hire.lever.co', 'lever.co',
+  'workable.com', 'apply.workable.com',
+  'ashbyhq.com', 'ashby.io',
+  'smartrecruiters.com',
+  'bamboohr.com', 'app.bamboohr.com',
+  'jobvite.com',
+  'icims.com',
+  'myworkdayjobs.com', 'wd1.myworkdayjobs.com',
+  'successfactors.com',
+  'recruitee.com',
+  'breezy.hr',
+  'applytojob.com',
+]);
+
+// Subject patterns for all application confirmation emails.
 // No ^ anchor — LinkedIn prepends the user's first name: "Matthew, your application…"
 const SUBJECT_PATTERNS = [
-  // "Matthew, your application was sent to Acme Corp"
-  // "Your Easy Apply application was sent to Acme Corp"
-  { re: /your (?:easy apply )?application was sent to (.+)/i,  groups: { company: 1 } },
-  // "Your application to Machine Learning Engineer at Acme Corp"
-  { re: /your application to (.+?) at (.+)/i,                  groups: { role: 1, company: 2 } },
-  // "You applied to Software Engineer at Acme Corp"
-  { re: /you applied to (.+?) at (.+)/i,                       groups: { role: 1, company: 2 } },
-  // "Application submitted to / for Acme Corp"
-  { re: /application submitted.*?(?:to|for) (.+)/i,            groups: { company: 1 } },
-  // "Acme Corp received your application"
-  { re: /(.+?) received your application/i,                    groups: { company: 1 } },
+  // LinkedIn Easy Apply: "Matthew, your application was sent to Acme Corp"
+  { re: /your (?:easy apply )?application was sent to (.+)/i,         groups: { company: 1 } },
+  // "Your application to [Role] at [Company]" (LinkedIn / Workable)
+  { re: /your application (?:to|for) (.+?) at (.+)/i,                 groups: { role: 1, company: 2 } },
+  // "You applied to [Role] at [Company]"
+  { re: /you applied to (.+?) at (.+)/i,                              groups: { role: 1, company: 2 } },
+  // "Thanks / Thank you for applying for [Role] at [Company]" (Workable, SmartRecruiters)
+  { re: /thank(?:s| you) for applying (?:for|to) (.+?) at (.+)/i,    groups: { role: 1, company: 2 } },
+  // "We received your application for [Role] at [Company]"
+  { re: /we (?:received|got) your application for (.+?) at (.+)/i,   groups: { role: 1, company: 2 } },
+  // "Your application for [Role] at [Company] has been received"
+  { re: /your application for (.+?) at (.+?) (?:has been|was)/i,     groups: { role: 1, company: 2 } },
+  // "[Company] received your application" (Lever)
+  { re: /^(.+?) (?:has )?received your application/i,                 groups: { company: 1 } },
+  // "Application received — [Company]" (Lever)
+  { re: /application received[^a-z]+(.+)/i,                           groups: { company: 1 } },
+  // "Application submitted to / for [Company]" (Greenhouse)
+  { re: /application submitted.*?(?:to|for) (.+)/i,                   groups: { company: 1 } },
+  // "Thank you for your application to [Company]"
+  { re: /thank(?:s| you) for your application (?:to|for|at) (.+)/i,  groups: { company: 1 } },
+  // "Your application to [Company]" (Greenhouse generic)
+  { re: /your application (?:to|for) (.+)/i,                          groups: { company: 1 } },
 ];
 
+function senderMatchesApplicationDomain(fromAddress) {
+  const domain = fromAddress?.split('@')?.[1]?.toLowerCase() ?? '';
+  return [...APPLICATION_SENDER_DOMAINS].some(d => domain === d || domain.endsWith('.' + d));
+}
+
 /**
- * Returns { company, role, jobUrl, subject } or null if not a LinkedIn application email.
- * @param {string} fromAddress  e.g. "jobs-noreply@linkedin.com"
- * @param {string} subject
- * @param {string} html         HTML body (may be empty string)
+ * Parse any application confirmation email — LinkedIn Easy Apply or ATS platform.
+ * Returns { company, role, jobUrl, source, subject } or null.
  */
 export function parseLinkedInConfirmation(fromAddress, subject, html) {
-  if (!fromAddress.toLowerCase().includes('linkedin.com')) return null;
+  if (!senderMatchesApplicationDomain(fromAddress)) return null;
   if (!subject) return null;
+
+  const domain  = fromAddress?.split('@')?.[1]?.toLowerCase() ?? '';
+  const source  = domain.includes('linkedin') ? 'linkedin'
+    : domain.includes('greenhouse') ? 'greenhouse'
+    : domain.includes('lever')      ? 'lever'
+    : domain.includes('workable')   ? 'workable'
+    : domain.includes('ashby')      ? 'ashby'
+    : 'ats';
 
   let company = null;
   let role    = null;
 
   for (const { re, groups } of SUBJECT_PATTERNS) {
-    const m = subject.match(re);
+      const m = subject.match(re);
     if (!m) continue;
     company = groups.company ? m[groups.company]?.trim() : null;
     role    = groups.role    ? m[groups.role]?.trim()    : null;
@@ -133,5 +174,5 @@ export function parseLinkedInConfirmation(fromAddress, subject, html) {
     }
   }
 
-  return { company, role: role ?? null, jobUrl: jobUrl ?? null, subject };
+  return { company, role: role ?? null, jobUrl: jobUrl ?? null, source, subject };
 }

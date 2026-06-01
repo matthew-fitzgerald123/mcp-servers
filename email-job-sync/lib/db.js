@@ -97,17 +97,18 @@ export function findApplication(company, role) {
 }
 
 /** Create a new application from a LinkedIn email detection. */
-export function createApplication({ company, role, jobUrl, emailDate }) {
+export function createApplication({ company, role, jobUrl, emailDate, source }) {
   const db  = getDb();
   const id  = newId();
   const ts  = new Date().toISOString();
   const appliedDate = emailDate ? emailDate.slice(0, 10) : ts.slice(0, 10);
+  const src = source ?? 'linkedin';
 
   db.prepare(`
     INSERT INTO applications
       (id, created_at, updated_at, company, role, status, source, job_url, applied_date, last_activity)
-    VALUES (?, ?, ?, ?, ?, 'applied', 'linkedin', ?, ?, ?)
-  `).run(id, ts, ts, company, role ?? 'Unknown Role', jobUrl ?? null, appliedDate, ts);
+    VALUES (?, ?, ?, ?, ?, 'applied', ?, ?, ?, ?)
+  `).run(id, ts, ts, company, role ?? 'Unknown Role', src, jobUrl ?? null, appliedDate, ts);
 
   db.prepare(`
     INSERT INTO interactions (id, application_id, date, type, summary)

@@ -8,7 +8,7 @@ import { join } from 'path';
 import { homedir } from 'os';
 import Database from 'better-sqlite3';
 import { loadConfig, saveConfig, DEFAULTS } from '../lib/config.js';
-import { parseLinkedInConfirmation, fetchJobDetails } from '../lib/linkedin.js';
+import { parseLinkedInConfirmation, fetchJobDetails, APPLICATION_SENDER_DOMAINS } from '../lib/linkedin.js';
 import { classifyFollowup, matchEmailToApplication } from '../lib/classifier.js';
 import { wasProcessed, logEmail, findApplication, createApplication, patchJobUrl, enrichApplication, getActiveApplications, logFollowupInteraction, recentSyncLog } from '../lib/db.js';
 
@@ -36,8 +36,11 @@ async function sweep({ daysBack = 90 } = {}) {
   await client.connect();
   const lock = await client.getMailboxLock('INBOX');
   try {
-    const since = new Date(Date.now() - daysBack * 86_400_000);
-    const uids  = await client.search({ since, from: '@linkedin.com' }, { uid: true });
+    const since   = new Date(Date.now() - daysBack * 86_400_000);
+    const batches = await Promise.all(
+      [...APPLICATION_SENDER_DOMAINS].map(d => client.search({ since, from: d }, { uid: true }).catch(() => []))
+    );
+    const uids = [...new Set(batches.flat())];
     results.scanned = uids.length;
 
     for await (const msg of client.fetch(uids, { uid: true }, { uid: true })) {

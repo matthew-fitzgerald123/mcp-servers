@@ -12,7 +12,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
 import { loadConfig, DEFAULTS } from '../lib/config.js';
-import { parseLinkedInConfirmation, fetchJobDetails } from '../lib/linkedin.js';
+import { parseLinkedInConfirmation, fetchJobDetails, APPLICATION_SENDER_DOMAINS } from '../lib/linkedin.js';
 import { classifyFollowup, matchEmailToApplication } from '../lib/classifier.js';
 import { wasProcessed, logEmail, findApplication, createApplication, patchJobUrl, enrichApplication, getActiveApplications, logFollowupInteraction } from '../lib/db.js';
 
@@ -105,9 +105,13 @@ async function runOnce(client, state) {
   // On first run (lastUID=0) limit to last 90 days to avoid full inbox scan
   let uids;
   if (state.lastUID === 0) {
-    // First run: only fetch LinkedIn emails from the last 90 days instead of the full inbox
-    const since = new Date(Date.now() - 90 * 86_400_000);
-    uids = await client.search({ since, from: 'linkedin.com' }, { uid: true });
+    // First run: search all known application confirmation senders from last 90 days
+    const since   = new Date(Date.now() - 90 * 86_400_000);
+    const domains = [...APPLICATION_SENDER_DOMAINS];
+    const batches = await Promise.all(
+      domains.map(d => client.search({ since, from: d }, { uid: true }).catch(() => []))
+    );
+    uids = [...new Set(batches.flat())];
   } else {
     uids = await client.search({ uid: `${state.lastUID + 1}:*` }, { uid: true });
   }

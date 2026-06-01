@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Job Tracker",
+  "version": "1.0.0",
+  "description": "Capture job applications into your local tracker",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://localhost:7432/*"],
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/jobs/*",
+        "https://boards.greenhouse.io/*",
+        "https://jobs.lever.co/*",
+        "https://apply.workable.com/*",
+        "https://job-boards.greenhouse.io/*",
+        "https://jobs.ashbyhq.com/*",
+        "https://*.greenhouse.io/jobs/*",
+        "https://*.lever.co/*",
+        "https://*.workday.com/*",
+        "https://*.myworkdayjobs.com/*",
+        "https://*.smartrecruiters.com/*",
+        "https://*.bamboohr.com/jobs/*",
+        "https://*.jobvite.com/*",
+        "*://*/*/jobs/*",
+        "*://*/*/careers/*",
+        "*://*/*/job/*",
+        "*://*/*/career/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

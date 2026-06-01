@@ -1,0 +1,993 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28CD330F2FCDF07800CF7EF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD330E2FCDF07800CF7EF5 /* AppDelegate.swift */; };
+		28CD33112FCDF07800CF7EF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD33102FCDF07800CF7EF5 /* SceneDelegate.swift */; };
+		28CD33142FCDF07800CF7EF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33122FCDF07800CF7EF5 /* LaunchScreen.storyboard */; };
+		28CD33172FCDF07800CF7EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33152FCDF07800CF7EF5 /* Main.storyboard */; };
+		28CD33202FCDF07800CF7EF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD331F2FCDF07800CF7EF5 /* AppDelegate.swift */; };
+		28CD33232FCDF07800CF7EF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33212FCDF07800CF7EF5 /* Main.storyboard */; };
+		28CD332A2FCDF07800CF7EF5 /* JobTracker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 28CD33292FCDF07800CF7EF5 /* JobTracker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28CD33342FCDF07800CF7EF5 /* JobTracker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 28CD33332FCDF07800CF7EF5 /* JobTracker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28CD33392FCDF07800CF7EF5 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 28CD32FE2FCDF07700CF7EF5 /* Main.html */; };
+		28CD333A2FCDF07800CF7EF5 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 28CD32FE2FCDF07700CF7EF5 /* Main.html */; };
+		28CD333B2FCDF07800CF7EF5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33002FCDF07700CF7EF5 /* Icon.png */; };
+		28CD333C2FCDF07800CF7EF5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33002FCDF07700CF7EF5 /* Icon.png */; };
+		28CD333D2FCDF07800CF7EF5 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33012FCDF07700CF7EF5 /* Style.css */; };
+		28CD333E2FCDF07800CF7EF5 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33012FCDF07700CF7EF5 /* Style.css */; };
+		28CD333F2FCDF07800CF7EF5 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33022FCDF07700CF7EF5 /* Script.js */; };
+		28CD33402FCDF07800CF7EF5 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33022FCDF07700CF7EF5 /* Script.js */; };
+		28CD33412FCDF07800CF7EF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD33032FCDF07700CF7EF5 /* ViewController.swift */; };
+		28CD33422FCDF07800CF7EF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD33032FCDF07700CF7EF5 /* ViewController.swift */; };
+		28CD33432FCDF07800CF7EF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33042FCDF07800CF7EF5 /* Assets.xcassets */; };
+		28CD33442FCDF07800CF7EF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33042FCDF07800CF7EF5 /* Assets.xcassets */; };
+		28CD33452FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD33062FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift */; };
+		28CD33462FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD33062FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift */; };
+		28CD335E2FCDF07900CF7EF5 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33582FCDF07900CF7EF5 /* popup.js */; };
+		28CD335F2FCDF07900CF7EF5 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33592FCDF07900CF7EF5 /* popup.html */; };
+		28CD33602FCDF07900CF7EF5 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335A2FCDF07900CF7EF5 /* build.sh */; };
+		28CD33612FCDF07900CF7EF5 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335B2FCDF07900CF7EF5 /* icons */; };
+		28CD33622FCDF07900CF7EF5 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335C2FCDF07900CF7EF5 /* manifest.json */; };
+		28CD33632FCDF07900CF7EF5 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335D2FCDF07900CF7EF5 /* content.js */; };
+		28CD33642FCDF07900CF7EF5 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33582FCDF07900CF7EF5 /* popup.js */; };
+		28CD33652FCDF07900CF7EF5 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 28CD33592FCDF07900CF7EF5 /* popup.html */; };
+		28CD33662FCDF07900CF7EF5 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335A2FCDF07900CF7EF5 /* build.sh */; };
+		28CD33672FCDF07900CF7EF5 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335B2FCDF07900CF7EF5 /* icons */; };
+		28CD33682FCDF07900CF7EF5 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335C2FCDF07900CF7EF5 /* manifest.json */; };
+		28CD33692FCDF07900CF7EF5 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 28CD335D2FCDF07900CF7EF5 /* content.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28CD332B2FCDF07800CF7EF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28CD32F82FCDF07600CF7EF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28CD33282FCDF07800CF7EF5;
+			remoteInfo = "JobTracker Extension (iOS)";
+		};
+		28CD33352FCDF07800CF7EF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28CD32F82FCDF07600CF7EF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28CD33322FCDF07800CF7EF5;
+			remoteInfo = "JobTracker Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		28CD334C2FCDF07800CF7EF5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				28CD332A2FCDF07800CF7EF5 /* JobTracker Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33532FCDF07800CF7EF5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				28CD33342FCDF07800CF7EF5 /* JobTracker Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		28CD32FF2FCDF07700CF7EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		28CD33002FCDF07700CF7EF5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		28CD33012FCDF07700CF7EF5 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		28CD33022FCDF07700CF7EF5 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		28CD33032FCDF07700CF7EF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28CD33042FCDF07800CF7EF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28CD33062FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		28CD330B2FCDF07800CF7EF5 /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CD330E2FCDF07800CF7EF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		28CD33102FCDF07800CF7EF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		28CD33132FCDF07800CF7EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		28CD33162FCDF07800CF7EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28CD33182FCDF07800CF7EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28CD331D2FCDF07800CF7EF5 /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CD331F2FCDF07800CF7EF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		28CD33222FCDF07800CF7EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28CD33242FCDF07800CF7EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28CD33292FCDF07800CF7EF5 /* JobTracker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JobTracker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CD332E2FCDF07800CF7EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28CD33332FCDF07800CF7EF5 /* JobTracker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JobTracker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CD33382FCDF07800CF7EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28CD33582FCDF07900CF7EF5 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = "../../../safari-extension/popup.js"; sourceTree = "<group>"; };
+		28CD33592FCDF07900CF7EF5 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = "../../../safari-extension/popup.html"; sourceTree = "<group>"; };
+		28CD335A2FCDF07900CF7EF5 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build.sh; path = "../../../safari-extension/build.sh"; sourceTree = "<group>"; };
+		28CD335B2FCDF07900CF7EF5 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../../safari-extension/icons"; sourceTree = "<group>"; };
+		28CD335C2FCDF07900CF7EF5 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../safari-extension/manifest.json"; sourceTree = "<group>"; };
+		28CD335D2FCDF07900CF7EF5 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = "../../../safari-extension/content.js"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28CD33082FCDF07800CF7EF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD331A2FCDF07800CF7EF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33262FCDF07800CF7EF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33302FCDF07800CF7EF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28CD32F72FCDF07600CF7EF5 = {
+			isa = PBXGroup;
+			children = (
+				28CD32FC2FCDF07600CF7EF5 /* Shared (App) */,
+				28CD33052FCDF07800CF7EF5 /* Shared (Extension) */,
+				28CD330D2FCDF07800CF7EF5 /* iOS (App) */,
+				28CD331E2FCDF07800CF7EF5 /* macOS (App) */,
+				28CD332D2FCDF07800CF7EF5 /* iOS (Extension) */,
+				28CD33372FCDF07800CF7EF5 /* macOS (Extension) */,
+				28CD330C2FCDF07800CF7EF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28CD32FC2FCDF07600CF7EF5 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				28CD33032FCDF07700CF7EF5 /* ViewController.swift */,
+				28CD33042FCDF07800CF7EF5 /* Assets.xcassets */,
+				28CD32FD2FCDF07600CF7EF5 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		28CD32FD2FCDF07600CF7EF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28CD32FE2FCDF07700CF7EF5 /* Main.html */,
+				28CD33002FCDF07700CF7EF5 /* Icon.png */,
+				28CD33012FCDF07700CF7EF5 /* Style.css */,
+				28CD33022FCDF07700CF7EF5 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		28CD33052FCDF07800CF7EF5 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				28CD33572FCDF07900CF7EF5 /* Resources */,
+				28CD33062FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		28CD330C2FCDF07800CF7EF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28CD330B2FCDF07800CF7EF5 /* JobTracker.app */,
+				28CD331D2FCDF07800CF7EF5 /* JobTracker.app */,
+				28CD33292FCDF07800CF7EF5 /* JobTracker Extension.appex */,
+				28CD33332FCDF07800CF7EF5 /* JobTracker Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28CD330D2FCDF07800CF7EF5 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				28CD330E2FCDF07800CF7EF5 /* AppDelegate.swift */,
+				28CD33102FCDF07800CF7EF5 /* SceneDelegate.swift */,
+				28CD33122FCDF07800CF7EF5 /* LaunchScreen.storyboard */,
+				28CD33152FCDF07800CF7EF5 /* Main.storyboard */,
+				28CD33182FCDF07800CF7EF5 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		28CD331E2FCDF07800CF7EF5 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				28CD331F2FCDF07800CF7EF5 /* AppDelegate.swift */,
+				28CD33212FCDF07800CF7EF5 /* Main.storyboard */,
+				28CD33242FCDF07800CF7EF5 /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		28CD332D2FCDF07800CF7EF5 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				28CD332E2FCDF07800CF7EF5 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		28CD33372FCDF07800CF7EF5 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				28CD33382FCDF07800CF7EF5 /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		28CD33572FCDF07900CF7EF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28CD33582FCDF07900CF7EF5 /* popup.js */,
+				28CD33592FCDF07900CF7EF5 /* popup.html */,
+				28CD335A2FCDF07900CF7EF5 /* build.sh */,
+				28CD335B2FCDF07900CF7EF5 /* icons */,
+				28CD335C2FCDF07900CF7EF5 /* manifest.json */,
+				28CD335D2FCDF07900CF7EF5 /* content.js */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28CD330A2FCDF07800CF7EF5 /* JobTracker (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28CD334D2FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker (iOS)" */;
+			buildPhases = (
+				28CD33072FCDF07800CF7EF5 /* Sources */,
+				28CD33082FCDF07800CF7EF5 /* Frameworks */,
+				28CD33092FCDF07800CF7EF5 /* Resources */,
+				28CD334C2FCDF07800CF7EF5 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28CD332C2FCDF07800CF7EF5 /* PBXTargetDependency */,
+			);
+			name = "JobTracker (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "JobTracker (iOS)";
+			productReference = 28CD330B2FCDF07800CF7EF5 /* JobTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28CD331C2FCDF07800CF7EF5 /* JobTracker (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28CD33542FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker (macOS)" */;
+			buildPhases = (
+				28CD33192FCDF07800CF7EF5 /* Sources */,
+				28CD331A2FCDF07800CF7EF5 /* Frameworks */,
+				28CD331B2FCDF07800CF7EF5 /* Resources */,
+				28CD33532FCDF07800CF7EF5 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28CD33362FCDF07800CF7EF5 /* PBXTargetDependency */,
+			);
+			name = "JobTracker (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "JobTracker (macOS)";
+			productReference = 28CD331D2FCDF07800CF7EF5 /* JobTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28CD33282FCDF07800CF7EF5 /* JobTracker Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28CD33492FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker Extension (iOS)" */;
+			buildPhases = (
+				28CD33252FCDF07800CF7EF5 /* Sources */,
+				28CD33262FCDF07800CF7EF5 /* Frameworks */,
+				28CD33272FCDF07800CF7EF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JobTracker Extension (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "JobTracker Extension (iOS)";
+			productReference = 28CD33292FCDF07800CF7EF5 /* JobTracker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		28CD33322FCDF07800CF7EF5 /* JobTracker Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28CD33502FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker Extension (macOS)" */;
+			buildPhases = (
+				28CD332F2FCDF07800CF7EF5 /* Sources */,
+				28CD33302FCDF07800CF7EF5 /* Frameworks */,
+				28CD33312FCDF07800CF7EF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JobTracker Extension (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "JobTracker Extension (macOS)";
+			productReference = 28CD33332FCDF07800CF7EF5 /* JobTracker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28CD32F82FCDF07600CF7EF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					28CD330A2FCDF07800CF7EF5 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+					28CD331C2FCDF07800CF7EF5 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+					28CD33282FCDF07800CF7EF5 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+					28CD33322FCDF07800CF7EF5 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+				};
+			};
+			buildConfigurationList = 28CD32FB2FCDF07600CF7EF5 /* Build configuration list for PBXProject "JobTracker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28CD32F72FCDF07600CF7EF5;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 28CD330C2FCDF07800CF7EF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28CD330A2FCDF07800CF7EF5 /* JobTracker (iOS) */,
+				28CD331C2FCDF07800CF7EF5 /* JobTracker (macOS) */,
+				28CD33282FCDF07800CF7EF5 /* JobTracker Extension (iOS) */,
+				28CD33322FCDF07800CF7EF5 /* JobTracker Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28CD33092FCDF07800CF7EF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD333B2FCDF07800CF7EF5 /* Icon.png in Resources */,
+				28CD33142FCDF07800CF7EF5 /* LaunchScreen.storyboard in Resources */,
+				28CD33392FCDF07800CF7EF5 /* Main.html in Resources */,
+				28CD333F2FCDF07800CF7EF5 /* Script.js in Resources */,
+				28CD33432FCDF07800CF7EF5 /* Assets.xcassets in Resources */,
+				28CD33172FCDF07800CF7EF5 /* Main.storyboard in Resources */,
+				28CD333D2FCDF07800CF7EF5 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD331B2FCDF07800CF7EF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD333C2FCDF07800CF7EF5 /* Icon.png in Resources */,
+				28CD333E2FCDF07800CF7EF5 /* Style.css in Resources */,
+				28CD33232FCDF07800CF7EF5 /* Main.storyboard in Resources */,
+				28CD33402FCDF07800CF7EF5 /* Script.js in Resources */,
+				28CD33442FCDF07800CF7EF5 /* Assets.xcassets in Resources */,
+				28CD333A2FCDF07800CF7EF5 /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33272FCDF07800CF7EF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD33692FCDF07900CF7EF5 /* content.js in Resources */,
+				28CD33662FCDF07900CF7EF5 /* build.sh in Resources */,
+				28CD33672FCDF07900CF7EF5 /* icons in Resources */,
+				28CD33682FCDF07900CF7EF5 /* manifest.json in Resources */,
+				28CD33642FCDF07900CF7EF5 /* popup.js in Resources */,
+				28CD33652FCDF07900CF7EF5 /* popup.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33312FCDF07800CF7EF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD33632FCDF07900CF7EF5 /* content.js in Resources */,
+				28CD33602FCDF07900CF7EF5 /* build.sh in Resources */,
+				28CD33612FCDF07900CF7EF5 /* icons in Resources */,
+				28CD33622FCDF07900CF7EF5 /* manifest.json in Resources */,
+				28CD335E2FCDF07900CF7EF5 /* popup.js in Resources */,
+				28CD335F2FCDF07900CF7EF5 /* popup.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28CD33072FCDF07800CF7EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD33412FCDF07800CF7EF5 /* ViewController.swift in Sources */,
+				28CD330F2FCDF07800CF7EF5 /* AppDelegate.swift in Sources */,
+				28CD33112FCDF07800CF7EF5 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33192FCDF07800CF7EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD33422FCDF07800CF7EF5 /* ViewController.swift in Sources */,
+				28CD33202FCDF07800CF7EF5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD33252FCDF07800CF7EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD33452FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28CD332F2FCDF07800CF7EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28CD33462FCDF07800CF7EF5 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28CD332C2FCDF07800CF7EF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28CD33282FCDF07800CF7EF5 /* JobTracker Extension (iOS) */;
+			targetProxy = 28CD332B2FCDF07800CF7EF5 /* PBXContainerItemProxy */;
+		};
+		28CD33362FCDF07800CF7EF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28CD33322FCDF07800CF7EF5 /* JobTracker Extension (macOS) */;
+			targetProxy = 28CD33352FCDF07800CF7EF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		28CD32FE2FCDF07700CF7EF5 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CD32FF2FCDF07700CF7EF5 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		28CD33122FCDF07800CF7EF5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CD33132FCDF07800CF7EF5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		28CD33152FCDF07800CF7EF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CD33162FCDF07800CF7EF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28CD33212FCDF07800CF7EF5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28CD33222FCDF07800CF7EF5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28CD33472FCDF07800CF7EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		28CD33482FCDF07800CF7EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		28CD334A2FCDF07800CF7EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "JobTracker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker.Extension;
+				PRODUCT_NAME = "JobTracker Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28CD334B2FCDF07800CF7EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "JobTracker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker.Extension;
+				PRODUCT_NAME = "JobTracker Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28CD334E2FCDF07800CF7EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = JobTracker;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker;
+				PRODUCT_NAME = JobTracker;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28CD334F2FCDF07800CF7EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = JobTracker;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker;
+				PRODUCT_NAME = JobTracker;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28CD33512FCDF07800CF7EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "JobTracker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker.Extension;
+				PRODUCT_NAME = "JobTracker Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		28CD33522FCDF07800CF7EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "JobTracker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker.Extension;
+				PRODUCT_NAME = "JobTracker Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		28CD33552FCDF07800CF7EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = JobTracker;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker;
+				PRODUCT_NAME = JobTracker;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		28CD33562FCDF07800CF7EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = JobTracker;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewfitzgerald.jobtracker;
+				PRODUCT_NAME = JobTracker;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28CD32FB2FCDF07600CF7EF5 /* Build configuration list for PBXProject "JobTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CD33472FCDF07800CF7EF5 /* Debug */,
+				28CD33482FCDF07800CF7EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28CD33492FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CD334A2FCDF07800CF7EF5 /* Debug */,
+				28CD334B2FCDF07800CF7EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28CD334D2FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CD334E2FCDF07800CF7EF5 /* Debug */,
+				28CD334F2FCDF07800CF7EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28CD33502FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CD33512FCDF07800CF7EF5 /* Debug */,
+				28CD33522FCDF07800CF7EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28CD33542FCDF07800CF7EF5 /* Build configuration list for PBXNativeTarget "JobTracker (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28CD33552FCDF07800CF7EF5 /* Debug */,
+				28CD33562FCDF07800CF7EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28CD32F82FCDF07600CF7EF5 /* Project object */;
+}
