@@ -7,42 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		288FF0AD2FCDF306005BB46D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FF0AC2FCDF306005BB46D /* AppDelegate.swift */; };
-		288FF0B12FCDF306005BB46D /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0AF2FCDF306005BB46D /* Main.html */; };
-		288FF0B32FCDF306005BB46D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0B22FCDF306005BB46D /* Icon.png */; };
-		288FF0B52FCDF306005BB46D /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0B42FCDF306005BB46D /* Style.css */; };
-		288FF0B72FCDF306005BB46D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0B62FCDF306005BB46D /* Script.js */; };
-		288FF0B92FCDF306005BB46D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FF0B82FCDF306005BB46D /* ViewController.swift */; };
-		288FF0BC2FCDF306005BB46D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0BA2FCDF306005BB46D /* Main.storyboard */; };
-		288FF0BE2FCDF307005BB46D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0BD2FCDF307005BB46D /* Assets.xcassets */; };
-		288FF0C52FCDF307005BB46D /* JobTracker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 288FF0C42FCDF307005BB46D /* JobTracker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		288FF0CA2FCDF307005BB46D /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FF0C92FCDF307005BB46D /* SafariWebExtensionHandler.swift */; };
-		288FF0DC2FCDF307005BB46D /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0D62FCDF307005BB46D /* popup.js */; };
-		288FF0DD2FCDF307005BB46D /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0D72FCDF307005BB46D /* popup.html */; };
-		288FF0DE2FCDF307005BB46D /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0D82FCDF307005BB46D /* build.sh */; };
-		288FF0DF2FCDF307005BB46D /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0D92FCDF307005BB46D /* icons */; };
-		288FF0E02FCDF307005BB46D /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0DA2FCDF307005BB46D /* manifest.json */; };
-		288FF0E12FCDF307005BB46D /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 288FF0DB2FCDF307005BB46D /* content.js */; };
+		282D574A2FCDF5B2004D78AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D57492FCDF5B2004D78AA /* AppDelegate.swift */; };
+		282D574E2FCDF5B2004D78AA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 282D574C2FCDF5B2004D78AA /* Main.html */; };
+		282D57502FCDF5B2004D78AA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 282D574F2FCDF5B2004D78AA /* Icon.png */; };
+		282D57522FCDF5B2004D78AA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 282D57512FCDF5B2004D78AA /* Style.css */; };
+		282D57542FCDF5B2004D78AA /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 282D57532FCDF5B2004D78AA /* Script.js */; };
+		282D57562FCDF5B2004D78AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D57552FCDF5B2004D78AA /* ViewController.swift */; };
+		282D57592FCDF5B2004D78AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282D57572FCDF5B2004D78AA /* Main.storyboard */; };
+		282D575B2FCDF5B3004D78AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282D575A2FCDF5B3004D78AA /* Assets.xcassets */; };
+		282D57622FCDF5B3004D78AA /* JobTracker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 282D57612FCDF5B3004D78AA /* JobTracker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		282D57672FCDF5B3004D78AA /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282D57662FCDF5B3004D78AA /* SafariWebExtensionHandler.swift */; };
+		282D577A2FCDF5B3004D78AA /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 282D57732FCDF5B3004D78AA /* popup.js */; };
+		282D577B2FCDF5B3004D78AA /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 282D57742FCDF5B3004D78AA /* background.js */; };
+		282D577C2FCDF5B3004D78AA /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 282D57752FCDF5B3004D78AA /* popup.html */; };
+		282D577D2FCDF5B3004D78AA /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 282D57762FCDF5B3004D78AA /* build.sh */; };
+		282D577E2FCDF5B3004D78AA /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 282D57772FCDF5B3004D78AA /* icons */; };
+		282D577F2FCDF5B3004D78AA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 282D57782FCDF5B3004D78AA /* manifest.json */; };
+		282D57802FCDF5B3004D78AA /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 282D57792FCDF5B3004D78AA /* content.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		288FF0C62FCDF307005BB46D /* PBXContainerItemProxy */ = {
+		282D57632FCDF5B3004D78AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 288FF0A12FCDF306005BB46D /* Project object */;
+			containerPortal = 282D573E2FCDF5B1004D78AA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 288FF0C32FCDF307005BB46D;
+			remoteGlobalIDString = 282D57602FCDF5B3004D78AA;
 			remoteInfo = "JobTracker Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		288FF0D12FCDF307005BB46D /* Embed Foundation Extensions */ = {
+		282D576E2FCDF5B3004D78AA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				288FF0C52FCDF307005BB46D /* JobTracker Extension.appex in Embed Foundation Extensions */,
+				282D57622FCDF5B3004D78AA /* JobTracker Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,36 +51,37 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		288FF0A92FCDF306005BB46D /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		288FF0AC2FCDF306005BB46D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		288FF0B02FCDF306005BB46D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
-		288FF0B22FCDF306005BB46D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		288FF0B42FCDF306005BB46D /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		288FF0B62FCDF306005BB46D /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		288FF0B82FCDF306005BB46D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		288FF0BB2FCDF306005BB46D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		288FF0BD2FCDF307005BB46D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		288FF0BF2FCDF307005BB46D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		288FF0C42FCDF307005BB46D /* JobTracker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JobTracker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		288FF0C92FCDF307005BB46D /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		288FF0CB2FCDF307005BB46D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		288FF0D62FCDF307005BB46D /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = "../../../safari-extension/popup.js"; sourceTree = "<group>"; };
-		288FF0D72FCDF307005BB46D /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = "../../../safari-extension/popup.html"; sourceTree = "<group>"; };
-		288FF0D82FCDF307005BB46D /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build.sh; path = "../../../safari-extension/build.sh"; sourceTree = "<group>"; };
-		288FF0D92FCDF307005BB46D /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../../safari-extension/icons"; sourceTree = "<group>"; };
-		288FF0DA2FCDF307005BB46D /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../safari-extension/manifest.json"; sourceTree = "<group>"; };
-		288FF0DB2FCDF307005BB46D /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = "../../../safari-extension/content.js"; sourceTree = "<group>"; };
+		282D57462FCDF5B2004D78AA /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		282D57492FCDF5B2004D78AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		282D574D2FCDF5B2004D78AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		282D574F2FCDF5B2004D78AA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		282D57512FCDF5B2004D78AA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		282D57532FCDF5B2004D78AA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		282D57552FCDF5B2004D78AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		282D57582FCDF5B2004D78AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		282D575A2FCDF5B3004D78AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		282D575C2FCDF5B3004D78AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		282D57612FCDF5B3004D78AA /* JobTracker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JobTracker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		282D57662FCDF5B3004D78AA /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		282D57682FCDF5B3004D78AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		282D57732FCDF5B3004D78AA /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = "../../../safari-extension/popup.js"; sourceTree = "<group>"; };
+		282D57742FCDF5B3004D78AA /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = "../../../safari-extension/background.js"; sourceTree = "<group>"; };
+		282D57752FCDF5B3004D78AA /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = "../../../safari-extension/popup.html"; sourceTree = "<group>"; };
+		282D57762FCDF5B3004D78AA /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build.sh; path = "../../../safari-extension/build.sh"; sourceTree = "<group>"; };
+		282D57772FCDF5B3004D78AA /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../../safari-extension/icons"; sourceTree = "<group>"; };
+		282D57782FCDF5B3004D78AA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../safari-extension/manifest.json"; sourceTree = "<group>"; };
+		282D57792FCDF5B3004D78AA /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = "../../../safari-extension/content.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		288FF0A62FCDF306005BB46D /* Frameworks */ = {
+		282D57432FCDF5B1004D78AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		288FF0C12FCDF307005BB46D /* Frameworks */ = {
+		282D575E2FCDF5B3004D78AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,67 +91,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		288FF0A02FCDF306005BB46D = {
+		282D573D2FCDF5B1004D78AA = {
 			isa = PBXGroup;
 			children = (
-				288FF0AB2FCDF306005BB46D /* JobTracker */,
-				288FF0C82FCDF307005BB46D /* JobTracker Extension */,
-				288FF0AA2FCDF306005BB46D /* Products */,
+				282D57482FCDF5B2004D78AA /* JobTracker */,
+				282D57652FCDF5B3004D78AA /* JobTracker Extension */,
+				282D57472FCDF5B2004D78AA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		288FF0AA2FCDF306005BB46D /* Products */ = {
+		282D57472FCDF5B2004D78AA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				288FF0A92FCDF306005BB46D /* JobTracker.app */,
-				288FF0C42FCDF307005BB46D /* JobTracker Extension.appex */,
+				282D57462FCDF5B2004D78AA /* JobTracker.app */,
+				282D57612FCDF5B3004D78AA /* JobTracker Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		288FF0AB2FCDF306005BB46D /* JobTracker */ = {
+		282D57482FCDF5B2004D78AA /* JobTracker */ = {
 			isa = PBXGroup;
 			children = (
-				288FF0AC2FCDF306005BB46D /* AppDelegate.swift */,
-				288FF0B82FCDF306005BB46D /* ViewController.swift */,
-				288FF0BA2FCDF306005BB46D /* Main.storyboard */,
-				288FF0BD2FCDF307005BB46D /* Assets.xcassets */,
-				288FF0BF2FCDF307005BB46D /* Info.plist */,
-				288FF0AE2FCDF306005BB46D /* Resources */,
+				282D57492FCDF5B2004D78AA /* AppDelegate.swift */,
+				282D57552FCDF5B2004D78AA /* ViewController.swift */,
+				282D57572FCDF5B2004D78AA /* Main.storyboard */,
+				282D575A2FCDF5B3004D78AA /* Assets.xcassets */,
+				282D575C2FCDF5B3004D78AA /* Info.plist */,
+				282D574B2FCDF5B2004D78AA /* Resources */,
 			);
 			path = JobTracker;
 			sourceTree = "<group>";
 		};
-		288FF0AE2FCDF306005BB46D /* Resources */ = {
+		282D574B2FCDF5B2004D78AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				288FF0AF2FCDF306005BB46D /* Main.html */,
-				288FF0B22FCDF306005BB46D /* Icon.png */,
-				288FF0B42FCDF306005BB46D /* Style.css */,
-				288FF0B62FCDF306005BB46D /* Script.js */,
+				282D574C2FCDF5B2004D78AA /* Main.html */,
+				282D574F2FCDF5B2004D78AA /* Icon.png */,
+				282D57512FCDF5B2004D78AA /* Style.css */,
+				282D57532FCDF5B2004D78AA /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		288FF0C82FCDF307005BB46D /* JobTracker Extension */ = {
+		282D57652FCDF5B3004D78AA /* JobTracker Extension */ = {
 			isa = PBXGroup;
 			children = (
-				288FF0D52FCDF307005BB46D /* Resources */,
-				288FF0C92FCDF307005BB46D /* SafariWebExtensionHandler.swift */,
-				288FF0CB2FCDF307005BB46D /* Info.plist */,
+				282D57722FCDF5B3004D78AA /* Resources */,
+				282D57662FCDF5B3004D78AA /* SafariWebExtensionHandler.swift */,
+				282D57682FCDF5B3004D78AA /* Info.plist */,
 			);
 			path = "JobTracker Extension";
 			sourceTree = "<group>";
 		};
-		288FF0D52FCDF307005BB46D /* Resources */ = {
+		282D57722FCDF5B3004D78AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				288FF0D62FCDF307005BB46D /* popup.js */,
-				288FF0D72FCDF307005BB46D /* popup.html */,
-				288FF0D82FCDF307005BB46D /* build.sh */,
-				288FF0D92FCDF307005BB46D /* icons */,
-				288FF0DA2FCDF307005BB46D /* manifest.json */,
-				288FF0DB2FCDF307005BB46D /* content.js */,
+				282D57732FCDF5B3004D78AA /* popup.js */,
+				282D57742FCDF5B3004D78AA /* background.js */,
+				282D57752FCDF5B3004D78AA /* popup.html */,
+				282D57762FCDF5B3004D78AA /* build.sh */,
+				282D57772FCDF5B3004D78AA /* icons */,
+				282D57782FCDF5B3004D78AA /* manifest.json */,
+				282D57792FCDF5B3004D78AA /* content.js */,
 			);
 			name = Resources;
 			path = "JobTracker Extension";
@@ -158,34 +161,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		288FF0A82FCDF306005BB46D /* JobTracker */ = {
+		282D57452FCDF5B1004D78AA /* JobTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 288FF0D22FCDF307005BB46D /* Build configuration list for PBXNativeTarget "JobTracker" */;
+			buildConfigurationList = 282D576F2FCDF5B3004D78AA /* Build configuration list for PBXNativeTarget "JobTracker" */;
 			buildPhases = (
-				288FF0A52FCDF306005BB46D /* Sources */,
-				288FF0A62FCDF306005BB46D /* Frameworks */,
-				288FF0A72FCDF306005BB46D /* Resources */,
-				288FF0D12FCDF307005BB46D /* Embed Foundation Extensions */,
+				282D57422FCDF5B1004D78AA /* Sources */,
+				282D57432FCDF5B1004D78AA /* Frameworks */,
+				282D57442FCDF5B1004D78AA /* Resources */,
+				282D576E2FCDF5B3004D78AA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				288FF0C72FCDF307005BB46D /* PBXTargetDependency */,
+				282D57642FCDF5B3004D78AA /* PBXTargetDependency */,
 			);
 			name = JobTracker;
 			packageProductDependencies = (
 			);
 			productName = JobTracker;
-			productReference = 288FF0A92FCDF306005BB46D /* JobTracker.app */;
+			productReference = 282D57462FCDF5B2004D78AA /* JobTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		288FF0C32FCDF307005BB46D /* JobTracker Extension */ = {
+		282D57602FCDF5B3004D78AA /* JobTracker Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 288FF0CE2FCDF307005BB46D /* Build configuration list for PBXNativeTarget "JobTracker Extension" */;
+			buildConfigurationList = 282D576B2FCDF5B3004D78AA /* Build configuration list for PBXNativeTarget "JobTracker Extension" */;
 			buildPhases = (
-				288FF0C02FCDF307005BB46D /* Sources */,
-				288FF0C12FCDF307005BB46D /* Frameworks */,
-				288FF0C22FCDF307005BB46D /* Resources */,
+				282D575D2FCDF5B3004D78AA /* Sources */,
+				282D575E2FCDF5B3004D78AA /* Frameworks */,
+				282D575F2FCDF5B3004D78AA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -195,117 +198,118 @@
 			packageProductDependencies = (
 			);
 			productName = "JobTracker Extension";
-			productReference = 288FF0C42FCDF307005BB46D /* JobTracker Extension.appex */;
+			productReference = 282D57612FCDF5B3004D78AA /* JobTracker Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		288FF0A12FCDF306005BB46D /* Project object */ = {
+		282D573E2FCDF5B1004D78AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2650;
 				TargetAttributes = {
-					288FF0A82FCDF306005BB46D = {
+					282D57452FCDF5B1004D78AA = {
 						CreatedOnToolsVersion = 26.5;
 					};
-					288FF0C32FCDF307005BB46D = {
+					282D57602FCDF5B3004D78AA = {
 						CreatedOnToolsVersion = 26.5;
 					};
 				};
 			};
-			buildConfigurationList = 288FF0A42FCDF306005BB46D /* Build configuration list for PBXProject "JobTracker" */;
+			buildConfigurationList = 282D57412FCDF5B1004D78AA /* Build configuration list for PBXProject "JobTracker" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 288FF0A02FCDF306005BB46D;
+			mainGroup = 282D573D2FCDF5B1004D78AA;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 288FF0AA2FCDF306005BB46D /* Products */;
+			productRefGroup = 282D57472FCDF5B2004D78AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				288FF0A82FCDF306005BB46D /* JobTracker */,
-				288FF0C32FCDF307005BB46D /* JobTracker Extension */,
+				282D57452FCDF5B1004D78AA /* JobTracker */,
+				282D57602FCDF5B3004D78AA /* JobTracker Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		288FF0A72FCDF306005BB46D /* Resources */ = {
+		282D57442FCDF5B1004D78AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288FF0B32FCDF306005BB46D /* Icon.png in Resources */,
-				288FF0BC2FCDF306005BB46D /* Main.storyboard in Resources */,
-				288FF0B72FCDF306005BB46D /* Script.js in Resources */,
-				288FF0B12FCDF306005BB46D /* Main.html in Resources */,
-				288FF0BE2FCDF307005BB46D /* Assets.xcassets in Resources */,
-				288FF0B52FCDF306005BB46D /* Style.css in Resources */,
+				282D57502FCDF5B2004D78AA /* Icon.png in Resources */,
+				282D57592FCDF5B2004D78AA /* Main.storyboard in Resources */,
+				282D57542FCDF5B2004D78AA /* Script.js in Resources */,
+				282D574E2FCDF5B2004D78AA /* Main.html in Resources */,
+				282D575B2FCDF5B3004D78AA /* Assets.xcassets in Resources */,
+				282D57522FCDF5B2004D78AA /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		288FF0C22FCDF307005BB46D /* Resources */ = {
+		282D575F2FCDF5B3004D78AA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288FF0E12FCDF307005BB46D /* content.js in Resources */,
-				288FF0DE2FCDF307005BB46D /* build.sh in Resources */,
-				288FF0DF2FCDF307005BB46D /* icons in Resources */,
-				288FF0E02FCDF307005BB46D /* manifest.json in Resources */,
-				288FF0DC2FCDF307005BB46D /* popup.js in Resources */,
-				288FF0DD2FCDF307005BB46D /* popup.html in Resources */,
+				282D577B2FCDF5B3004D78AA /* background.js in Resources */,
+				282D577D2FCDF5B3004D78AA /* build.sh in Resources */,
+				282D577C2FCDF5B3004D78AA /* popup.html in Resources */,
+				282D577E2FCDF5B3004D78AA /* icons in Resources */,
+				282D577F2FCDF5B3004D78AA /* manifest.json in Resources */,
+				282D57802FCDF5B3004D78AA /* content.js in Resources */,
+				282D577A2FCDF5B3004D78AA /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		288FF0A52FCDF306005BB46D /* Sources */ = {
+		282D57422FCDF5B1004D78AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288FF0B92FCDF306005BB46D /* ViewController.swift in Sources */,
-				288FF0AD2FCDF306005BB46D /* AppDelegate.swift in Sources */,
+				282D57562FCDF5B2004D78AA /* ViewController.swift in Sources */,
+				282D574A2FCDF5B2004D78AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		288FF0C02FCDF307005BB46D /* Sources */ = {
+		282D575D2FCDF5B3004D78AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288FF0CA2FCDF307005BB46D /* SafariWebExtensionHandler.swift in Sources */,
+				282D57672FCDF5B3004D78AA /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		288FF0C72FCDF307005BB46D /* PBXTargetDependency */ = {
+		282D57642FCDF5B3004D78AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 288FF0C32FCDF307005BB46D /* JobTracker Extension */;
-			targetProxy = 288FF0C62FCDF307005BB46D /* PBXContainerItemProxy */;
+			target = 282D57602FCDF5B3004D78AA /* JobTracker Extension */;
+			targetProxy = 282D57632FCDF5B3004D78AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		288FF0AF2FCDF306005BB46D /* Main.html */ = {
+		282D574C2FCDF5B2004D78AA /* Main.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				288FF0B02FCDF306005BB46D /* Base */,
+				282D574D2FCDF5B2004D78AA /* Base */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";
 		};
-		288FF0BA2FCDF306005BB46D /* Main.storyboard */ = {
+		282D57572FCDF5B2004D78AA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				288FF0BB2FCDF306005BB46D /* Base */,
+				282D57582FCDF5B2004D78AA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -313,7 +317,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		288FF0CC2FCDF307005BB46D /* Debug */ = {
+		282D57692FCDF5B3004D78AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -376,7 +380,7 @@
 			};
 			name = Debug;
 		};
-		288FF0CD2FCDF307005BB46D /* Release */ = {
+		282D576A2FCDF5B3004D78AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -431,7 +435,7 @@
 			};
 			name = Release;
 		};
-		288FF0CF2FCDF307005BB46D /* Debug */ = {
+		282D576C2FCDF5B3004D78AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -465,7 +469,7 @@
 			};
 			name = Debug;
 		};
-		288FF0D02FCDF307005BB46D /* Release */ = {
+		282D576D2FCDF5B3004D78AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -499,7 +503,7 @@
 			};
 			name = Release;
 		};
-		288FF0D32FCDF307005BB46D /* Debug */ = {
+		282D57702FCDF5B3004D78AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -540,7 +544,7 @@
 			};
 			name = Debug;
 		};
-		288FF0D42FCDF307005BB46D /* Release */ = {
+		282D57712FCDF5B3004D78AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -584,34 +588,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		288FF0A42FCDF306005BB46D /* Build configuration list for PBXProject "JobTracker" */ = {
+		282D57412FCDF5B1004D78AA /* Build configuration list for PBXProject "JobTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				288FF0CC2FCDF307005BB46D /* Debug */,
-				288FF0CD2FCDF307005BB46D /* Release */,
+				282D57692FCDF5B3004D78AA /* Debug */,
+				282D576A2FCDF5B3004D78AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		288FF0CE2FCDF307005BB46D /* Build configuration list for PBXNativeTarget "JobTracker Extension" */ = {
+		282D576B2FCDF5B3004D78AA /* Build configuration list for PBXNativeTarget "JobTracker Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				288FF0CF2FCDF307005BB46D /* Debug */,
-				288FF0D02FCDF307005BB46D /* Release */,
+				282D576C2FCDF5B3004D78AA /* Debug */,
+				282D576D2FCDF5B3004D78AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		288FF0D22FCDF307005BB46D /* Build configuration list for PBXNativeTarget "JobTracker" */ = {
+		282D576F2FCDF5B3004D78AA /* Build configuration list for PBXNativeTarget "JobTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				288FF0D32FCDF307005BB46D /* Debug */,
-				288FF0D42FCDF307005BB46D /* Release */,
+				282D57702FCDF5B3004D78AA /* Debug */,
+				282D57712FCDF5B3004D78AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 288FF0A12FCDF306005BB46D /* Project object */;
+	rootObject = 282D573E2FCDF5B1004D78AA /* Project object */;
 }

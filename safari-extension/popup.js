@@ -14,28 +14,38 @@ async function init() {
     }
 
     document.getElementById('main').style.display = 'block';
-    document.getElementById('company').textContent  = data.company  || '—';
-    document.getElementById('role').textContent     = data.role     || '—';
+    document.getElementById('company').textContent = data.company || '—';
+    document.getElementById('role').textContent    = data.role    || '—';
 
-    const loc = document.getElementById('location');
     if (data.location) {
-      loc.textContent = data.location;
+      document.getElementById('location').textContent = data.location;
     } else {
       document.getElementById('loc-row').style.display = 'none';
     }
 
-    const tag = document.getElementById('source-tag');
-    tag.textContent = SOURCE_LABELS[data.source] ?? data.source ?? 'Unknown';
+    document.getElementById('source-tag').textContent =
+      SOURCE_LABELS[data.source] ?? data.source ?? 'Unknown';
 
-    document.getElementById('btn').addEventListener('click', async () => {
+    document.getElementById('btn').addEventListener('click', () => {
       const btn = document.getElementById('btn');
       const msg = document.getElementById('msg');
       btn.disabled = true;
       btn.textContent = 'Saving…';
 
-      chrome.tabs.sendMessage(tab.id, { type: 'CAPTURE_NOW' }, (res) => {
+      // Route through background service worker to reach localhost
+      chrome.runtime.sendMessage({
+        type: 'CAPTURE',
+        payload: {
+          company:  data.company,
+          role:     data.role,
+          location: data.location,
+          job_url:  data.job_url ?? tab.url,
+          source:   data.source ?? 'company_site',
+          status:   'applied',
+        },
+      }, (res) => {
         if (chrome.runtime.lastError || !res?.ok) {
-          msg.textContent = 'Capture server not running — start it in Terminal.';
+          msg.textContent = 'Capture server not running.';
           msg.className = 'err';
           btn.disabled = false;
           btn.textContent = 'Capture Application';

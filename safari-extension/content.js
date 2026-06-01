@@ -6,7 +6,6 @@
   if (window.__jobTrackerLoaded) return;
   window.__jobTrackerLoaded = true;
 
-  const CAPTURE_URL = 'http://localhost:7432/capture';
   const host = window.location.hostname;
   const href = window.location.href;
 
@@ -147,30 +146,25 @@
 
   // ── Capture ────────────────────────────────────────────────────────────────
 
-  async function sendCapture(details, auto = false) {
-    try {
-      const res = await fetch(CAPTURE_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          company:  details.company,
-          role:     details.role,
-          location: details.location,
-          job_url:  href,
-          source:   details.source ?? 'company_site',
-          status:   'applied',
-        }),
-        signal: AbortSignal.timeout(5000),
-      });
-      const json = await res.json();
-      if (json.ok) showToast(auto
-        ? `Captured: ${json.company}`
-        : `Saved: ${json.company}`);
-      else showToast('Tracker error: ' + (json.error ?? 'unknown'), true);
-    } catch {
-      if (auto) {} // silent on auto-capture network errors
-      else showToast('Capture server not running', true);
-    }
+  function sendCapture(details, auto = false) {
+    const payload = {
+      company:  details.company,
+      role:     details.role,
+      location: details.location,
+      job_url:  href,
+      source:   details.source ?? 'company_site',
+      status:   'applied',
+    };
+    // Route through background service worker — content scripts can't
+    // reach localhost directly in Safari due to CSP restrictions.
+    chrome.runtime.sendMessage({ type: 'CAPTURE', payload }, (res) => {
+      if (chrome.runtime.lastError) {
+        if (!auto) showToast('Extension error: ' + chrome.runtime.lastError.message, true);
+        return;
+      }
+      if (res?.ok) showToast(auto ? `Captured: ${res.company}` : `Saved: ${res.company}`);
+      else if (!auto) showToast('Capture server not running — check Terminal', true);
+    });
   }
 
   // ── Toast ──────────────────────────────────────────────────────────────────
