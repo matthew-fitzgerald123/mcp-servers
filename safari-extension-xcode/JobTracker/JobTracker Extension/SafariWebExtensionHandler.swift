@@ -1,6 +1,6 @@
 //
 //  SafariWebExtensionHandler.swift
-//  Shared (Extension)
+//  JobTracker Extension
 //
 //  Created by Matthew Fitzgerald on 6/1/26.
 //

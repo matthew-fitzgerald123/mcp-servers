@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  macOS (App)
+//  JobTracker
 //
 //  Created by Matthew Fitzgerald on 6/1/26.
 //

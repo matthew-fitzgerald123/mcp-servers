@@ -2,71 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Tracker</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 13px;
-    width: 320px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 280px;
     background: #fff;
     color: #1a1a1a;
   }
-
   header {
     background: #0a66c2;
     color: #fff;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-weight: 600;
   }
-  header h1 { font-size: 15px; font-weight: 600; }
-  header span { font-size: 11px; opacity: 0.8; margin-left: auto; }
-
-  .body { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-
-  label { display: block; font-size: 11px; font-weight: 600; color: #555; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
-
-  input, select, textarea {
-    width: 100%;
-    border: 1px solid #d0d0d0;
-    border-radius: 6px;
-    padding: 7px 9px;
-    font-size: 13px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.15s;
-    background: #fafafa;
+  .card {
+    padding: 14px;
   }
-  input:focus, select:focus, textarea:focus { border-color: #0a66c2; background: #fff; }
-  textarea { resize: vertical; min-height: 56px; }
-
-  .row { display: flex; gap: 8px; }
-  .row > * { flex: 1; }
-
-  .source-badge {
+  .field { margin-bottom: 10px; }
+  .label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+  .value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .value.muted { color: #999; font-weight: 400; font-style: italic; }
+  .source-tag {
     display: inline-block;
     font-size: 10px;
     font-weight: 700;
-    padding: 2px 6px;
+    padding: 2px 7px;
     border-radius: 4px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
+    letter-spacing: 0.4px;
+    background: #e8f0fe;
+    color: #0a66c2;
+    margin-bottom: 12px;
   }
-  .source-linkedin    { background: #e8f0fe; color: #0a66c2; }
-  .source-greenhouse  { background: #e6f4ea; color: #1a7a3e; }
-  .source-lever       { background: #fce8e6; color: #b31a1a; }
-  .source-ashby       { background: #fef3e2; color: #b45309; }
-  .source-workday     { background: #f3e8ff; color: #6b21a8; }
-  .source-company_site { background: #f0f0f0; color: #555; }
-
   button {
     width: 100%;
-    padding: 10px;
+    padding: 11px;
     background: #0a66c2;
     color: #fff;
     border: none;
@@ -74,98 +60,48 @@
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.15s;
   }
-  button:hover  { background: #084fa3; }
-  button:active { background: #063d80; }
-  button:disabled { background: #aaa; cursor: not-allowed; }
-
-  #status {
-    text-align: center;
+  button:disabled { background: #aaa; cursor: default; }
+  button:hover:not(:disabled) { background: #084fa3; }
+  #msg {
+    margin-top: 8px;
     font-size: 12px;
-    padding: 6px;
-    border-radius: 6px;
-    display: none;
-  }
-  #status.success { background: #e6f4ea; color: #1a7a3e; display: block; }
-  #status.error   { background: #fce8e6; color: #b31a1a; display: block; }
-
-  .spinner { display: none; }
-  button.loading .label { display: none; }
-  button.loading .spinner { display: inline; }
-
-  #not-job-page {
-    padding: 20px 14px;
     text-align: center;
+    color: #1a7a3e;
+    min-height: 16px;
+  }
+  #msg.err { color: #b31a1a; }
+  #not-a-job {
+    padding: 24px 16px;
+    text-align: center;
+    font-size: 13px;
     color: #888;
-    font-size: 12px;
     line-height: 1.5;
   }
 </style>
 </head>
 <body>
-<header>
-  <h1>Job Tracker</h1>
-  <span id="header-source"></span>
-</header>
-
-<div id="main-content">
-  <div class="body">
-    <div id="source-badge-container"></div>
-
-    <div>
-      <label>Company</label>
-      <input id="company" type="text" placeholder="Acme Corp" autocomplete="off">
-    </div>
-
-    <div>
-      <label>Role</label>
-      <input id="role" type="text" placeholder="Software Engineer" autocomplete="off">
-    </div>
-
-    <div class="row">
-      <div>
-        <label>Status</label>
-        <select id="status">
-          <option value="applied">Applied</option>
-          <option value="discovered">Saved (not yet applied)</option>
-        </select>
-      </div>
-      <div>
-        <label>Source</label>
-        <select id="source">
-          <option value="linkedin">LinkedIn</option>
-          <option value="company_site">Company site</option>
-          <option value="referral">Referral</option>
-          <option value="recruiter">Recruiter</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-    </div>
-
-    <div>
-      <label>Location</label>
-      <input id="location" type="text" placeholder="Remote / New York, NY" autocomplete="off">
-    </div>
-
-    <div>
-      <label>Notes</label>
-      <textarea id="notes" placeholder="Anything worth remembering…"></textarea>
-    </div>
-
-    <button id="capture-btn">
-      <span class="label">Capture Application</span>
-      <span class="spinner">Saving…</span>
-    </button>
-
-    <div id="status"></div>
+<header>Job Tracker</header>
+<div id="not-a-job" style="display:none">
+  Navigate to a job listing page, then click capture.
+</div>
+<div id="main" class="card" style="display:none">
+  <div id="source-tag" class="source-tag"></div>
+  <div class="field">
+    <div class="label">Company</div>
+    <div class="value" id="company"></div>
   </div>
+  <div class="field">
+    <div class="label">Role</div>
+    <div class="value" id="role"></div>
+  </div>
+  <div class="field" id="loc-row">
+    <div class="label">Location</div>
+    <div class="value" id="location"></div>
+  </div>
+  <button id="btn">Capture Application</button>
+  <div id="msg"></div>
 </div>
-
-<div id="not-job-page" style="display:none">
-  Navigate to a job listing page to capture an application.
-</div>
-
 <script src="popup.js"></script>
 </body>
 </html>
