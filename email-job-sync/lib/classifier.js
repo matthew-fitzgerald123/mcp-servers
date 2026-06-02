@@ -181,3 +181,19 @@ export function matchSenderToApplication(from, apps) {
 export function matchSubjectToApplication(subject, apps) {
   return matchEmailToApplication('', subject, '', apps);
 }
+
+// AI-driven / one-way video assessment platforms — not human interviews
+const AI_INTERVIEW_SIGNALS = [
+  'hirevue', 'pymetrics', 'spark hire', 'sparkhire', 'modern hire', 'modernhire',
+  'vidcruiter', 'wepow', 'montage', 'interviewstream', 'talview', 'codility',
+  'one-way video', 'one way video', 'pre-recorded video', 'prerecorded',
+  'record your answers', 'record a video', 'video assessment',
+  'ai interview', 'speak with our ai', 'chat with our ai', 'speak with an ai',
+  'automated interview', 'digital interview', 'on-demand interview',
+  'on demand interview',
+];
+
+export function isAiInterview(subject, text) {
+  const content = `${subject ?? ''} ${(text ?? '').slice(0, 2000)}`.toLowerCase();
+  return AI_INTERVIEW_SIGNALS.some(s => content.includes(s));
+}

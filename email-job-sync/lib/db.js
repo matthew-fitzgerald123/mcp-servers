@@ -63,6 +63,7 @@ export function getDb() {
         processed_at    TEXT NOT NULL DEFAULT (datetime('now'))
       );
     `);
+    try { _db.exec('ALTER TABLE email_sync_log ADD COLUMN classification_type TEXT'); } catch {}
   }
   return _db;
 }
@@ -73,11 +74,11 @@ export function wasProcessed(uid) {
   return !!getDb().prepare('SELECT 1 FROM email_sync_log WHERE email_uid = ?').get(uid);
 }
 
-export function logEmail({ uid, date, subject, matched, applicationId = null }) {
+export function logEmail({ uid, date, subject, matched, applicationId = null, classificationType = null }) {
   getDb().prepare(`
-    INSERT OR IGNORE INTO email_sync_log (id, email_uid, email_date, subject, matched, application_id)
-    VALUES (?, ?, ?, ?, ?, ?)
-  `).run(newId(), uid, date ?? null, subject ?? null, matched ? 1 : 0, applicationId);
+    INSERT OR IGNORE INTO email_sync_log (id, email_uid, email_date, subject, matched, application_id, classification_type)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `).run(newId(), uid, date ?? null, subject ?? null, matched ? 1 : 0, applicationId, classificationType);
 }
 
 /** Find an existing open application by company+role (fuzzy). */
@@ -133,7 +134,7 @@ export function patchJobUrl(appId, jobUrl) {
  */
 export function getActiveApplications() {
   return getDb().prepare(
-    `SELECT id, company, status, applied_date FROM applications
+    `SELECT id, company, role, status, applied_date, job_url FROM applications
      WHERE status NOT IN ('rejected','withdrew','declined','accepted')
      ORDER BY last_activity DESC`
   ).all();
@@ -178,4 +179,29 @@ export function recentSyncLog(limit = 30) {
   return getDb().prepare(
     'SELECT * FROM email_sync_log ORDER BY processed_at DESC LIMIT ?'
   ).all(limit);
+}
+
+export function getEmailSyncStats() {
+  const db      = getDb();
+  const all     = db.prepare('SELECT COUNT(*) as n FROM email_sync_log').get().n;
+  const matched = db.prepare('SELECT COUNT(*) as n FROM email_sync_log WHERE matched = 1').get().n;
+  const byType  = db.prepare(
+    `SELECT classification_type, COUNT(*) as n FROM email_sync_log
+     WHERE classification_type IS NOT NULL GROUP BY classification_type ORDER BY n DESC`
+  ).all();
+  const recent  = db.prepare(
+    `SELECT el.*, a.company, a.role
+     FROM email_sync_log el LEFT JOIN applications a ON el.application_id = a.id
+     ORDER BY el.processed_at DESC LIMIT 20`
+  ).all();
+  return {
+    all_time: {
+      total_processed: all,
+      matched,
+      unmatched: all - matched,
+      match_rate_pct: all > 0 ? Math.round(matched / all * 100) : 0,
+    },
+    by_classification: Object.fromEntries(byType.map(r => [r.classification_type, r.n])),
+    recent_20: recent,
+  };
 }

@@ -70,6 +70,7 @@ db.exec(`
     FOREIGN KEY (application_id) REFERENCES applications(id) ON DELETE CASCADE
   );
 `);
+try { db.exec('ALTER TABLE applications ADD COLUMN job_description TEXT'); } catch {}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -506,6 +507,201 @@ Thanks,
           last_interaction_type:      lastInt?.type ?? null
         }
       });
+    } catch (e) { return err(e.message); }
+  }
+);
+
+// ── get_daily_digest ──────────────────────────────────────────────────────────
+
+server.tool(
+  'get_daily_digest',
+  'Morning briefing: follow-ups due today, upcoming actions this week, recently active applications, and pipeline snapshot.',
+  {},
+  async () => {
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+
+      const followups_due = db.prepare(`
+        SELECT * FROM applications
+        WHERE next_action_date IS NOT NULL
+          AND next_action_date <= datetime('now', '+1 day')
+          AND status NOT IN ('${INACTIVE.join("','")}')
+        ORDER BY next_action_date ASC
+      `).all();
+
+      const upcoming_7d = db.prepare(`
+        SELECT * FROM applications
+        WHERE next_action_date IS NOT NULL
+          AND next_action_date > datetime('now', '+1 day')
+          AND next_action_date <= datetime('now', '+7 days')
+          AND status NOT IN ('${INACTIVE.join("','")}')
+        ORDER BY next_action_date ASC
+      `).all();
+
+      const recently_active = db.prepare(`
+        SELECT * FROM applications
+        WHERE last_activity >= datetime('now', '-3 days')
+          AND status NOT IN ('${INACTIVE.join("','")}')
+        ORDER BY last_activity DESC
+      `).all();
+
+      const new_this_week = db.prepare(`
+        SELECT COUNT(*) as count FROM applications
+        WHERE created_at >= datetime('now', '-7 days')
+      `).get();
+
+      const by_status = db.prepare(`
+        SELECT status, COUNT(*) as count FROM applications
+        WHERE status NOT IN ('${INACTIVE.join("','")}')
+        GROUP BY status ORDER BY count DESC
+      `).all();
+
+      return ok({
+        date: today,
+        followups_due,
+        upcoming_this_week: upcoming_7d,
+        recently_active,
+        pipeline: {
+          active_total: by_status.reduce((s, r) => s + r.count, 0),
+          by_status: Object.fromEntries(by_status.map(r => [r.status, r.count])),
+        },
+        new_applications_7d: new_this_week.count,
+      });
+    } catch (e) { return err(e.message); }
+  }
+);
+
+// ── generate_prep_brief ───────────────────────────────────────────────────────
+
+server.tool(
+  'generate_prep_brief',
+  'Assemble a full prep brief for an application: job description, notes, interaction history, and a tailored suggested prompt to kick off interview prep.',
+  {
+    application_id: z.string(),
+    focus: z.enum(['technical', 'behavioral', 'company', 'all']).optional().describe('Prep focus area (default: all)')
+  },
+  async ({ application_id, focus }) => {
+    try {
+      const app = db.prepare('SELECT * FROM applications WHERE id = ?').get(application_id);
+      if (!app) return err(`Application not found: ${application_id}`);
+
+      const contacts = db.prepare('SELECT * FROM contacts WHERE application_id = ?').all(application_id);
+      const interactions = db.prepare(
+        'SELECT * FROM interactions WHERE application_id = ? ORDER BY date DESC LIMIT 10'
+      ).all(application_id);
+      const prepNotes = db.prepare('SELECT * FROM prep_notes WHERE application_id = ?').get(application_id) ?? null;
+
+      const stageContext = {
+        discovered:       'Application not yet submitted.',
+        applied:          'Application submitted, awaiting first contact.',
+        recruiter_screen: 'Recruiter / HR phone screen stage.',
+        technical_screen: 'Technical screen or take-home assessment.',
+        onsite:           'Onsite or final-round loop.',
+        offer:            'Offer extended.',
+      }[app.status] ?? `Current status: ${app.status}`;
+
+      const focusVal = focus ?? 'all';
+      const base = `I have an interview for ${app.role} at ${app.company} (${stageContext})`;
+      const suggestedPrompt = focusVal === 'technical'
+        ? `${base}. Generate 8 technical questions with STAR-format answer frameworks relevant to this role.`
+        : focusVal === 'behavioral'
+        ? `${base}. Generate 8 behavioral questions with STAR-format prompts.`
+        : focusVal === 'company'
+        ? `${base}. What should I know about ${app.company}? What are 5 strong questions to ask the interviewer?`
+        : `${base}${app.job_description ? '. Full job description is included above' : ''}. Generate a complete prep brief: key technical topics, 5 behavioral questions, 3 questions to ask the interviewer, and a 2-minute "tell me about yourself" outline tailored to this role.`;
+
+      return ok({
+        application: {
+          company:      app.company,
+          role:         app.role,
+          location:     app.location ?? null,
+          status:       app.status,
+          stage_context: stageContext,
+          applied_date: app.applied_date,
+          job_url:      app.job_url ?? null,
+          salary_range: (app.salary_min || app.salary_max)
+            ? `${app.salary_min ? `$${app.salary_min.toLocaleString()}` : '?'} – ${app.salary_max ? `$${app.salary_max.toLocaleString()}` : '?'}`
+            : null,
+        },
+        job_description:     app.job_description ?? null,
+        has_job_description: !!(app.job_description),
+        prep_notes:          prepNotes?.content ?? null,
+        key_contacts:        contacts.map(c => ({ name: c.name, role: c.role, email: c.email })),
+        interaction_history: interactions.map(i => ({ date: i.date, type: i.type, summary: i.summary })),
+        prep_focus:          focusVal,
+        suggested_prompt:    suggestedPrompt,
+      });
+    } catch (e) { return err(e.message); }
+  }
+);
+
+// ── find_contact ──────────────────────────────────────────────────────────────
+
+server.tool(
+  'find_contact',
+  'Search contacts across all applications by name, email, or keyword. Returns contacts with their linked application info.',
+  {
+    query:   z.string().describe('Name, email address, or keyword to search'),
+    company: z.string().optional().describe('Filter by company name'),
+  },
+  async ({ query, company }) => {
+    try {
+      let q = `
+        SELECT c.*, a.company, a.role, a.status, a.last_activity
+        FROM contacts c
+        JOIN applications a ON c.application_id = a.id
+        WHERE (c.name LIKE ? OR c.email LIKE ? OR c.role LIKE ? OR c.notes LIKE ?)
+      `;
+      const params = [`%${query}%`, `%${query}%`, `%${query}%`, `%${query}%`];
+      if (company) {
+        q += ' AND a.company LIKE ?';
+        params.push(`%${company}%`);
+      }
+      q += ' ORDER BY a.last_activity DESC';
+      return ok(db.prepare(q).all(...params));
+    } catch (e) { return err(e.message); }
+  }
+);
+
+// ── get_source_analytics ──────────────────────────────────────────────────────
+
+server.tool(
+  'get_source_analytics',
+  'Conversion funnel by application source: response rate, interview rate, and offer rate per source channel.',
+  {},
+  async () => {
+    try {
+      const PROGRESSED = ['recruiter_screen', 'technical_screen', 'onsite', 'offer', 'accepted'];
+      const INTERVIEWED = ['technical_screen', 'onsite', 'offer', 'accepted'];
+      const OFFERED     = ['offer', 'accepted'];
+
+      const rows = db.prepare(
+        'SELECT source, status, COUNT(*) as n FROM applications GROUP BY source, status'
+      ).all();
+
+      const bySource = {};
+      for (const row of rows) {
+        if (!bySource[row.source]) {
+          bySource[row.source] = { source: row.source, total: 0, progressed: 0, interviewed: 0, offered: 0, rejected: 0 };
+        }
+        const s = bySource[row.source];
+        s.total      += row.n;
+        if (PROGRESSED.includes(row.status))  s.progressed  += row.n;
+        if (INTERVIEWED.includes(row.status)) s.interviewed += row.n;
+        if (OFFERED.includes(row.status))     s.offered     += row.n;
+        if (row.status === 'rejected')        s.rejected    += row.n;
+      }
+
+      const results = Object.values(bySource)
+        .map(s => ({
+          ...s,
+          response_rate:  s.total > 0 ? `${Math.round(s.progressed  / s.total * 100)}%` : '0%',
+          interview_rate: s.total > 0 ? `${Math.round(s.interviewed / s.total * 100)}%` : '0%',
+          offer_rate:     s.total > 0 ? `${Math.round(s.offered     / s.total * 100)}%` : '0%',
+        }))
+        .sort((a, b) => b.total - a.total);
+
+      return ok({ by_source: results });
     } catch (e) { return err(e.message); }
   }
 );

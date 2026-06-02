@@ -9,8 +9,8 @@ import { homedir } from 'os';
 import Database from 'better-sqlite3';
 import { loadConfig, saveConfig, DEFAULTS } from '../lib/config.js';
 import { parseLinkedInConfirmation, fetchJobDetails, APPLICATION_SENDER_DOMAINS } from '../lib/linkedin.js';
-import { classifyFollowup, matchEmailToApplication } from '../lib/classifier.js';
-import { wasProcessed, logEmail, findApplication, createApplication, patchJobUrl, enrichApplication, getActiveApplications, logFollowupInteraction, recentSyncLog } from '../lib/db.js';
+import { classifyFollowup, matchEmailToApplication, isAiInterview } from '../lib/classifier.js';
+import { wasProcessed, logEmail, findApplication, createApplication, patchJobUrl, enrichApplication, getActiveApplications, logFollowupInteraction, recentSyncLog, getEmailSyncStats } from '../lib/db.js';
 
 const db = new Database(join(homedir(), '.job-tracker', 'tracker.db'));
 
@@ -163,26 +163,31 @@ server.tool(
         try { daemonState = JSON.parse(readFileSync(STATE_PATH, 'utf8')); } catch {}
       }
 
-      const log = recentSyncLog(20);
-      const matched   = log.filter(r => r.matched).length;
-      const unmatched = log.filter(r => !r.matched).length;
+      const health = getEmailSyncStats();
 
       return ok({
         configured,
         username:     cfg?.username ?? null,
         daemon_state: daemonState,
-        recent_log: {
-          total:     log.length,
-          matched,
-          unmatched,
-          entries:   log
-        }
+        health,
       });
     } catch (e) { return err(e.message); }
   }
 );
 
 // ── sweep_followup_emails ─────────────────────────────────────────────────────
+
+// Return calendar event spec for a confirmed human interview, or { ai_interview: true } for automated ones.
+function buildCalendarSuggestion(app, subject, body) {
+  if (isAiInterview(subject, body)) return { ai_interview: true };
+  return {
+    calendar_suggestion: {
+      title:         `Interview: ${app.role ?? 'Position'} at ${app.company}`,
+      notes:         `Interview for the ${app.role ?? 'position'} at ${app.company}.${app.job_url ? `\n\nJob: ${app.job_url}` : ''}`,
+      email_excerpt: body.slice(0, 800).trim(),
+    },
+  };
+}
 
 // Pull the first meaningful word from a company name to use as an IMAP FROM search term.
 // "VoiceAdmin" → "voiceadmin"  |  "Protech Talent" → "protech"  |  "Stand8 Tech" → "stand8"
@@ -212,7 +217,7 @@ server.tool(
       if (!cfg?.password) return err('Email not configured. Run configure_email first.');
 
       const apps = application_id
-        ? [db.prepare('SELECT id, company, status, applied_date FROM applications WHERE id = ?').get(application_id)].filter(Boolean)
+        ? [db.prepare('SELECT id, company, role, status, applied_date, job_url FROM applications WHERE id = ?').get(application_id)].filter(Boolean)
         : getActiveApplications();
 
       if (apps.length === 0) return ok({ message: 'No active applications found.', scanned: 0, logged: 0 });
@@ -262,17 +267,41 @@ server.tool(
             const fromAddress = parsed.from?.value?.[0]?.address ?? '';
             const emailDate   = parsed.date?.toISOString() ?? null;
             const subject     = parsed.subject ?? '';
+            const body        = parsed.text ?? '';
 
             if (fromAddress.toLowerCase().includes('linkedin.com')) {
               logEmail({ uid, date: emailDate, subject, matched: false }); continue;
             }
 
-            const matchedApp = matchEmailToApplication(fromAddress, subject, parsed.text ?? '', [app]);
+            const classification = classifyFollowup(subject, body);
+            const matchedApp     = matchEmailToApplication(fromAddress, subject, body, [app]);
+
             if (!matchedApp) {
-              logEmail({ uid, date: emailDate, subject, matched: false }); continue;
+              // Email came back in a company-specific IMAP search — if it has a clear
+              // classification, log it directly rather than silently dropping it.
+              if (classification) {
+                logFollowupInteraction({
+                  applicationId: app.id, subject, date: emailDate,
+                  type:         classification.interactionType,
+                  summary:      `[${classification.type.replace(/_/g, ' ')}] ${subject}`,
+                  statusUpdate: classification.statusUpdate,
+                });
+                logEmail({ uid, date: emailDate, subject, matched: true, applicationId: app.id, classificationType: classification.type });
+                results.logged++;
+                const detail = {
+                  company: app.company, from: fromAddress, subject,
+                  type: classification.type, confidence: classification.confidence,
+                  statusUpdate: classification.statusUpdate,
+                  match_method: 'company_search_fallback',
+                };
+                if (classification.type === 'interview') Object.assign(detail, buildCalendarSuggestion(app, subject, body));
+                results.details.push(detail);
+              } else {
+                logEmail({ uid, date: emailDate, subject, matched: false });
+              }
+              continue;
             }
 
-            const classification = classifyFollowup(subject, parsed.text ?? '');
             if (classification) {
               logFollowupInteraction({
                 applicationId: app.id, subject, date: emailDate,
@@ -280,9 +309,9 @@ server.tool(
                 summary:      `[${classification.type.replace(/_/g, ' ')}] ${subject}`,
                 statusUpdate: classification.statusUpdate,
               });
-              logEmail({ uid, date: emailDate, subject, matched: true, applicationId: app.id });
+              logEmail({ uid, date: emailDate, subject, matched: true, applicationId: app.id, classificationType: classification.type });
               results.logged++;
-              results.details.push({
+              const detail = {
                 company:        app.company,
                 from:           fromAddress,
                 subject,
@@ -290,7 +319,9 @@ server.tool(
                 confidence:     classification.confidence,
                 statusUpdate:   classification.statusUpdate,
                 matchedSignals: classification.matchedSignals,
-              });
+              };
+              if (classification.type === 'interview') Object.assign(detail, buildCalendarSuggestion(app, subject, body));
+              results.details.push(detail);
             } else {
               logEmail({ uid, date: emailDate, subject, matched: false });
             }
